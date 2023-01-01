@@ -21,8 +21,9 @@ public class Main {
 상품들의 목록 저장소 -> ProductRepository
 할인 조건 -> CozDiscountCondition
 프로그램의 메인 로직 -> Kiosk
-2.세부사항
-커피, 차 -> 이름, 가격, id, [옵션]옵션은 각각
-공통정보 : 이름, 가격, id
-각각 다른 정보 : 옵션
+2. 세부사항
+커피, 차 -> 이름, 가격, id, 옵션
+공통정보 : 이름, 가격, id -> Product클래스로 상속하자
+각각 다른 정보 : 옵션 -> Product클래스에 추상메서드로 정의하여 각각에 오버라이딩하자
+3.
 */

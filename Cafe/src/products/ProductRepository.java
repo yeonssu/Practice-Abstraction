@@ -11,7 +11,7 @@ public class ProductRepository {
     public Product[] getProducts() {
         return products;
     }
-    //id를 받아와서 상푸을 찾아 리턴하는 메서드
+    //id를 받아와서 상품을 찾아 리턴하는 메서드
     public Product findById(int productId) {
         for(Product product : products) {
             if (product.getId() == productId) return product;

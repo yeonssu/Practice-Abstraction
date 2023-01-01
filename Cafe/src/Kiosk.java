@@ -1,13 +1,13 @@
-import discount.BEDiscountCondition;
-import discount.CozDiscountCondition;
+//import discount.BEDiscountCondition;
+//import discount.CozDiscountCondition;
 import discount.DiscountCondition;
 import products.Product;
 import products.ProductRepository;
 import java.util.Scanner;
 
 public class Kiosk {
-    private ProductRepository productRepository = new ProductRepository();
     Scanner scanner = new Scanner(System.in);
+    private ProductRepository productRepository = new ProductRepository();
     private DiscountCondition discountCondition;
     //**의존성주입**
     //Kiosk->cozDiscountCondition : 구현에 의존하고있다 구체클래스에 의존하고있다
@@ -19,21 +19,18 @@ public class Kiosk {
         this.discountCondition = discountCondition;
     }
     public void operate(){
-        //메뉴 출력
+        //1️⃣메뉴 출력
         printMenu();
 
-        //메뉴 고르기 -> 입력받기
+        //2️⃣메뉴 고르기 -> 입력받기
         Product selectedProduct = chooseMenu();
 
-        //옵션적용하기(따로따로 만들어야하므로 추상클래스로 만들자)
-        // 상품에따라 적절한 옵션을 물어봐주기
-        // ->사용자가 선택한 옵션 적용
-        // -> 옵션 선택내용을 문자열로 만들기
+        //3️⃣옵션적용하기(따로따로 만들어야하므로 추상클래스로 만들자)
+        // 1. 상품에따라 적절한 옵션을 물어봐주기 -> 2. 사용자가 선택한 옵션 적용 -> 3. 옵션 선택내용을 문자열로 만들기
         selectedProduct.applyOption();
 
-        //할인 여부 묻고 할인 적용하기
-
-        //주문 내역 출력
+        //4️⃣할인 여부 묻고 할인 적용하기 -> 변동가능하므로 추상클래스나 인터페이스로 구현
+        //5️⃣주문 내역 출력
         order(selectedProduct);
     }
     //리팩토링 cmd+option+M
