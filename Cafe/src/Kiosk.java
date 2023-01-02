@@ -8,13 +8,14 @@ import java.util.Scanner;
 public class Kiosk {
     Scanner scanner = new Scanner(System.in);
     private ProductRepository productRepository = new ProductRepository();
-    private DiscountCondition discountCondition;
     //**의존성주입**
     //Kiosk->cozDiscountCondition : 구현에 의존하고있다 구체클래스에 의존하고있다
     //Kiosk->DiscountCondition -> cozDiscountCondition : 역할에 의존하고있다
     //private CozDiscountCondition cozDiscountCondition = new CozDiscountCondition(500);
     //private BEDiscountCondition beDiscountCondition = new BEDiscountCondition(20);
     //위 두개처럼 작성하지않고 인터페이스로 적용하여 외부에서 결정하여 전달하고 호출
+    //또한 생성자를 만들어 외부에서 만들어서 주입받도록 한다
+    private DiscountCondition discountCondition;
     public Kiosk(DiscountCondition discountCondition){
         this.discountCondition = discountCondition;
     }

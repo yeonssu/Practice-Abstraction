@@ -9,7 +9,9 @@ import discount.BEDiscountCondition;
 // 5. 할인 조건 : 코드스테이츠 수강생 500원 할인 (변동가능)
 public class Main {
     public static void main(String[] args) {
-        Kiosk kiosk = new Kiosk(new BEDiscountCondition(20));
+        //어떤 객체를 사용할지, 생성할지를 결정하는 역할만 하는 클래스를 만들어 분리
+        AppConfigurer appConfigurer = new AppConfigurer();
+        Kiosk kiosk = new Kiosk(appConfigurer.discountCondition());
 
         kiosk.operate();
     }
